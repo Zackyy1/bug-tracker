@@ -29,7 +29,7 @@ export class IssuemanagerService {
   constructor(
     private db: AngularFirestore, 
     private router: Router,
-    private afAuth: AngularFireAuth) {
+    public afAuth: AngularFireAuth) {
 
     this.currentProjectSubj.subscribe((value) => {
       this.currentProject = value
@@ -65,6 +65,15 @@ export class IssuemanagerService {
      }
     
   }
+
+  
+  login() {
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  }
+  logout() {
+    this.afAuth.auth.signOut();
+  }
+
 
    updateCurrentIssue(issue) {
      this.currentIssueSubj.subscribe(e => {

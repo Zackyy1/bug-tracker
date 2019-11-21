@@ -7,15 +7,15 @@
      
         <h1 (click)="routeToMain()">bug tracker</h1>
 
-      <div class="login-wrapper" *ngIf="afAuth.user | async as user; else showLogin">
+      <div class="login-wrapper" *ngIf="db.afAuth.user | async as user; else showLogin">
        
-            <h2 class="loggedin-info">Loggin in as {{db.afAuth.auth.currentUser.email.slice(0, db.afAuth.auth.currentUser.email.indexOf('@'))}} </h2>
-            <button class="login-button" (click)="logout()">Logout</button> 
+            <h2 class="loggedin-info">Loggin in as {{ db.afAuth.auth && db.afAuth.auth.currentUser && db.afAuth.auth.currentUser.email.slice(0, db.afAuth.auth.currentUser.email.indexOf('@'))}} </h2>
+            <button class="login-button" (click)="db.logout()">Logout</button> 
         
         </div>
         <ng-template #showLogin>
           
-          <button class="login-button" (click)="login()">Login with Google</button>
+          <button class="login-button" (click)="db.login()">Login with Google</button>
         </ng-template>
   </nav>
 

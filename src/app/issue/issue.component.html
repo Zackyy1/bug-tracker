@@ -1,6 +1,6 @@
 <div class="issue" 
 [ngClass]="issueStatus == 'pending' ? 'pending' : issueStatus == 'approved' ? 'approved'
-: issueStatus == 'rejected' ? 'rejected' : issueStatus == 'fixed' ? 'fixed' : noclass"
+: issueStatus == 'rejected' ? 'rejected' : issueStatus == 'fixed' ? 'fixed' : 'noclass'"
 >
   <p class="project-name">/projects/{{issueProject}}</p>
   <button class="delete" *ngIf="db.isDev()" (click)="deleteIssue()">X</button>

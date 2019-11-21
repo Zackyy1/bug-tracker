@@ -25,7 +25,7 @@ export class IssueComponent implements OnInit {
 
   @Input() data: Observable<any>
 
-  constructor(private db: IssuemanagerService, private router: Router) { }
+  constructor(public db: IssuemanagerService, private router: Router) { }
 
   ngOnInit() {
     // this.self = new Issue(this.issueName, this.issueId,  this.issueStatus)

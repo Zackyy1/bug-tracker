@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   devs = environment.devs
 
   constructor(
-    private db: IssuemanagerService, 
+    public db: IssuemanagerService, 
     private router: Router, 
     private afAuth: AngularFireAuth
     ) {
@@ -48,13 +48,6 @@ export class AppComponent implements OnInit {
   // Check if user is a developer (Can manage issues, flag and delete them)
   
   
-
-  login() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
-  }
-  logout() {
-    this.afAuth.auth.signOut();
-  }
 
   routeToMain() {
 
