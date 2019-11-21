@@ -1,0 +1,83 @@
+
+
+
+.container {
+    max-width: 1900px;    
+    overflow: hidden;
+    position: relative;
+    
+    // padding: 2rem;
+}
+
+.shadow1 {
+    // content: '';
+    border-radius: 45px;
+    background-color: #fff;
+    box-shadow: 0 0 10px black;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+
+// .title {
+//     width: fit-content;
+//     margin: 0 auto;
+// }
+
+h1 {
+    // position: relative;
+    text-align: left;
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    margin: 1rem;
+    // margin-bottom: 3rem;
+    color: white;
+    font-size: 2.8rem;
+    text-decoration: underline;
+    // padding: 1rem;
+    z-index: 5;
+    cursor: pointer;
+}
+
+nav {
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+    // background-color: #fff;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login-button {
+    // float: right;
+    // position: absolute;
+    // justify-content: center;
+    // right: 0;
+    height: 100%;
+    padding: 0.5rem;
+    margin: 1rem;
+    font-size: 1.2rem;
+    background: none;
+    outline: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 15px;
+
+}
+
+.loggedin-info {
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+}

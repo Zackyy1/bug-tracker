@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.btn {
+    background: none;
+    border: none;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    outline: none;
+}
+
+body {
+    background-color: rgb(31, 31, 31);
+}
+
+p, h1, h2, h3, h4, h5, h6, button, span, body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.ql-container {
+    height: 300px !important;
+    font-size: 1.2rem !important;
+}

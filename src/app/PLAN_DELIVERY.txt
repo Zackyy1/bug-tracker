@@ -1,0 +1,13 @@
+Bonus challenge: Build this project using this project
+
+## Overview
+
+-This app will be used for users to send their packages inside their city and to other cities.
+-Anyone who is registered and approved may become the currier. 
+-Package delivery is paid by the reciever.
+-Currier gets their payment as soon as the reciever confirms package delivery.
+-Curriers may take many packages at a time and earn money by driving around the city.
+-Approval must be legally confirmed and Terms of Use must be followed
+
+## Building process:
+

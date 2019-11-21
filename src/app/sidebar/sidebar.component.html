@@ -1,0 +1,15 @@
+<div class="sidebar">
+  <div class="add-project-button">
+    <button class="" (click)="toggleForm()" >Add project</button>
+  </div>
+ 
+    <form (ngSubmit)="submitNewProject($event)" class="project-form" >
+      <input type="text" placeholder="Enter project name" [ngClass]="showForm != true ? 'hidden' : noclass">
+    </form>
+ 
+  <h2>Projects</h2>
+  <div class="project-list">
+    <button class="project-button" (click)="switchToProject({projectName: 'all'})">all</button>
+    <button class="project-button" (click)="switchToProject(project)" *ngFor="let project of projects">{{project.projectName}}</button>
+  </div>
+</div>

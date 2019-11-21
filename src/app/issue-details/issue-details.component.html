@@ -1,0 +1,43 @@
+
+<div class="issue-details" *ngIf="issue">
+
+  <h2 class="issue-title">{{issue.project}} <br> <span>{{issue.title}}</span></h2>
+  <div class="divider"></div>
+
+  <h2 class="issue-status">Status: 
+    
+    <!-- <span [ngClass]="issue.status == 'pending' ? 'pending' : noclass">{{issue.status}}</span> -->
+    <div class="btn-group" *ngIf="db.isDev(); else notDev">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <span class="status-text" [ngClass]="issue.status == 'pending' ? 'pending' : issue.status == 'approved' ? 'approved'
+         : issue.status == 'rejected' ? 'rejected' : issue.status == 'fixed' ? 'fixed' : noclass"><strong>{{issue.status}}</strong></span>
+        </button>
+        <div class="dropdown-menu">
+          <button (click)="updateIssueStatus('pending')" class="status-option"><span class="status-option-text">Pending</span></button>
+          <button (click)="updateIssueStatus('approved')" class="status-option"><span class="status-option-text">Approved</span></button>
+          <button (click)="updateIssueStatus('rejected')" class="status-option"><span class="status-option-text">Rejected</span></button>
+          <button (click)="updateIssueStatus('fixed')" class="status-option"><span class="status-option-text">Fixed</span></button>
+        </div>
+      </div>
+      <ng-template #notDev>
+          <span class="status-text" [ngClass]="issue.status == 'pending' ? 'pending' : issue.status == 'approved' ? 'approved'
+          : issue.status == 'rejected' ? 'rejected' : issue.status == 'fixed' ? 'fixed' : noclass"><strong>{{issue.status}}</strong></span>
+      </ng-template>
+  
+  </h2>
+
+  <p>Issue id: {{ issue.id }}</p>
+
+  <div class="divider"></div>
+
+  <h5 class="issue-topic">Summary</h5>
+  <p class="summary" [innerHtml]="issue.summary"></p>
+
+  <div class="divider"></div>
+
+
+  <h5 class="issue-topic">Description</h5>
+  <p class="summary" [innerHtml]="issue.details.longDescription" ></p>
+
+
+</div>

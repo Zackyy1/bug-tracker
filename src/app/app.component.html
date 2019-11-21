@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  
+
+  <nav>
+
+     
+        <h1 (click)="routeToMain()">bug tracker</h1>
+
+      <div class="login-wrapper" *ngIf="afAuth.user | async as user; else showLogin">
+       
+            <h2 class="loggedin-info">Loggin in as {{db.afAuth.auth.currentUser.email.slice(0, db.afAuth.auth.currentUser.email.indexOf('@'))}} </h2>
+            <button class="login-button" (click)="logout()">Logout</button> 
+        
+        </div>
+        <ng-template #showLogin>
+          
+          <button class="login-button" (click)="login()">Login with Google</button>
+        </ng-template>
+  </nav>
+
+
+  <div class="shadow1">
+  
+    <div class="row">
+      <div class="col-2">
+          <app-sidebar></app-sidebar>
+      </div>
+
+      <div class="col-10">
+          <!-- <app-issue-list [issues]="issues"></app-issue-list> -->
+          <router-outlet></router-outlet>
+      </div>
+
+      
+    </div>
+    
+  </div>
+</div>
+
+

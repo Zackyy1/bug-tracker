@@ -1,0 +1,126 @@
+.issue-details {
+    margin: 0.5rem;
+    padding: 0.5rem;
+
+    .issue-title {
+        font-size: 2rem;
+        text-align: center;
+        // margin-top: 2rem;
+        padding: 0.5rem;
+        span {
+            font-size: 2.5rem;
+        }
+    }
+
+    .issue-topic {
+        font-size: 2rem;
+        // margin: 0.5rem;
+        padding: 0.5rem;
+        text-decoration: underline;
+    }
+
+    .status-text {
+        text-transform: uppercase;
+    }
+
+    .issue-status {
+        padding:  0.5rem;
+        margin: 0.5rem;
+        margin-bottom: -1rem;
+        font-weight: bold;
+        span {
+            &.pending {
+                color: rgb(255, 191, 53);
+            }
+            &.approved {
+                color: rgb(0, 145, 138);
+            }
+            &.rejected {
+                color: rgb(214, 11, 11);
+            }
+            &.fixed {
+                color: rgb(12, 145, 0);
+
+            }
+        }
+    }
+
+    p {
+        margin: 0.5rem;
+        padding: 0.5rem 0.5rem;
+        font-size: 1.3rem;
+    }
+
+}
+
+.divider {
+    width: 100%;
+    margin: .5rem auto;
+    height: 3px;
+    background-color: rgb(96, 30, 172);
+    background: linear-gradient(to right, rgb(151, 96, 214),rgb(94, 170, 233));
+}
+
+.btn {
+    font-size: 1.8rem;
+    outline: none;
+    border: none;
+}
+.btn:active {
+    // font-size: 1.8rem;
+    outline: none;
+    border: none;
+}
+
+.status-option {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    // background: linear-gradient(to right, rgb(16, 157, 167), rgb(16, 64, 167), rgb(61, 16, 167), rgb(16, 86, 167), rgb(16, 157, 167));
+    // background-size: 400%;
+    // background-position: 0%;
+    background: #fff;
+    outline: none;
+    border: none;
+    // z-index: 300;
+    opacity: 1;
+    position: relative;
+    filter: initial;
+
+    .status-option-text {
+        z-index: 400;
+    }
+}
+
+
+.status-option::before {
+    position: absolute;
+    content: '';
+    top: 0;bottom: 0;right: 0;left: 0;
+    background-size: 400%;
+    background-position: 0%;
+    filter: blur(15px);
+
+}
+
+.status-option:hover::before {
+    background: linear-gradient(to right, rgb(16, 157, 167), rgb(16, 64, 167), rgb(61, 16, 167), rgb(16, 86, 167), rgb(16, 157, 167));
+    background-size: 400%;
+    top: 0;bottom: 0;right: 0;left: 0;
+    z-index: 300;
+    opacity: .3;
+    animation: animate 6s infinite 0s forwards ease;
+}
+
+@keyframes animate {
+    0%{
+        background-position: 0%;
+    }
+    50%{
+        background-position: 200%;
+    }
+    100%{
+        background-position: 400%;
+
+    }
+}

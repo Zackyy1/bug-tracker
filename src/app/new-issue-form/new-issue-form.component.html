@@ -1,0 +1,116 @@
+<div class="new-issue-form">
+
+  <div class="header">
+
+    <div class="form-header">
+        <h5 class="pre-project-title">New issue for project</h5>
+        <h2 class="project-title">{{parsedProject}}</h2>
+    </div>
+
+    <div class="title">
+        <label for="issueTitle"  >Issue title</label>
+        <input type="text" (input)="updateData($event, 'title')">
+    </div>
+    
+  </div>
+
+  <p style="font-style: italic;">*If issue is not a bug and doesn't require 'steps to reproduce' or 'expected/actual results', just leave the editors blank</p>
+
+  <form [formGroup]="editorForm" (ngSubmit)="onSubmit()">
+    <div class="collapse-thing">
+        
+        <div class="accordion" id="accordionExample">
+
+            <div class="card">
+                <div class="card-header" id="headingFive">
+                  <h5 class="collapse-button-wrapper">
+                    <button class="collapse-button" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                      Summary
+                    </button>
+                  </h5>
+                </div>
+            
+                <div id="collapseFive" class="collapse show" aria-labelledby="headingFive" data-parent="#accordionExample">
+                  <div class="card-body">
+                      <!-- <textarea name="" id="" cols="30" rows="10"  (input)="updateData($event, 'shortDescription')"></textarea> -->
+                    <quill-editor formControlName="summary"></quill-editor>
+  
+                  </div>
+                </div>
+              </div>
+
+
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h5 class="collapse-button-wrapper">
+                  <button class="collapse-button" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Description
+                  </button>
+                </h5>
+              </div>
+          
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!-- <textarea name="" id="" cols="30" rows="10"  (input)="updateData($event, 'shortDescription')"></textarea> -->
+                  <quill-editor formControlName="shortDesc"></quill-editor>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="collapse-button-wrapper">
+                  <button class="collapse-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Steps to reproduce
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    <!-- <textarea name="" id="" cols="30" rows="10" (input)="updateData($event, 'stepsToReproduce')"></textarea> -->
+                    <quill-editor formControlName="steps"></quill-editor>
+
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h5 class="collapse-button-wrapper">
+                  <button class="collapse-button collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Expected results
+                  </button>
+                </h5>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                  <!-- <textarea name="" id="" cols="30" rows="10" (input)="updateData($event, 'expected')"></textarea> -->
+                  <quill-editor formControlName="expected"></quill-editor>
+
+                </div>
+              </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                  <h5 class="collapse-button-wrapper">
+                    <button class="collapse-button collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      Actual results
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                  <div class="card-body">
+                      <!-- <textarea name="" id="" cols="30" rows="10" (input)="updateData($event, 'actual')"></textarea> -->
+                      <quill-editor formControlName="actual"></quill-editor>
+
+                  </div>
+                </div>
+              </div>
+          </div>
+
+    </div>
+    <button class="submit-button">Send</button>
+
+  </form>
+</div>

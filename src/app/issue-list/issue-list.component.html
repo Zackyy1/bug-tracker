@@ -1,0 +1,25 @@
+<div class="issue-list row" >
+    <div class="col-10" *ngIf="currentProjectIssues && currentProjectIssues.length > 0">
+            <div class="title">
+                    <h2 class="project-title" *ngIf="currentProject != 'all'" >Showing issues for <span>{{currentProject}}</span></h2>
+                    <h2 class="project-title" *ngIf="currentProject == 'all'" >All issues</h2>
+                </div>
+                <div *ngFor="let issue of currentProjectIssues" >
+                    <app-issue [data]="issue"></app-issue>
+                </div>
+              
+    </div>
+
+    <div class="col-10" *ngIf="currentProjectIssues == null || currentProjectIssues.length < 1">
+        <h2 class="no-issues" >No issues yet!</h2>
+    </div>
+  
+  <div class="new-issue-wrapper col-2">
+
+        <button class="new-issue btn" *ngIf="currentProject != 'all'" (click)="submitNewIssue()">New issue</button>
+
+    </div>
+
+  </div>  
+
+ 

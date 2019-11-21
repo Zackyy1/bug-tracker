@@ -1,0 +1,26 @@
+Bonus challenge: Build this project using this project
+
+## Overview
+
+This project is used to track completion of certain tasks while developing.
+Choose a project and open an issue. Store it in the database and mark as opened.
+While opened, user may add comments and update progress.
+When a task is completed, user closes the issue and marks it as closed.
+It can later be used to see which things are needed, which ones are under
+development and which are already done.
+
+New bug -> Rejected or Verified -> Being fixed -> Ready for testing -> Testing -> Fixed
+
+
+## Building process:
+
+build an issue entry #check
+build issue creator
+by clicking on a project, access it from database and view only that issue entries
+edit, post, delete, get functions in a service
+login page
+authentication
+secure database
+
+
+https://www.youtube.com/watch?v=Sh3_k_QPGzw
