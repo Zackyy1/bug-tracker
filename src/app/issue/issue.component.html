@@ -6,25 +6,28 @@
   <button class="delete" *ngIf="db.isDev()" (click)="deleteIssue()">X</button>
 
   <h2 (click)="goToIssue()" class="issue-name" style="cursor: pointer;"><strong>#{{issueId}}/{{issueTitle}}</strong></h2>
-  <p [innerHtml]="issueSummary"></p>
+  <p class="summary" [innerHtml]="issueSummary"></p>
 
-  <div class="btn-group" *ngIf="db.isDev(); else notDev">
+  <div class="status-div"> 
+    <div class="btn-group status-dev" *ngIf="db.isDev(); else notDev">
       
-        <button class="issue-status dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{issueStatus}}
-        </button>
-     
-      <div class="dropdown-menu">
-          <button (click)="updateIssueStatus('pending')" class="status-option"><span class="status-option-text">Pending</span></button>
-          <button (click)="updateIssueStatus('approved')" class="status-option"><span class="status-option-text">Approved</span></button>
-          <button (click)="updateIssueStatus('rejected')" class="status-option"><span class="status-option-text">Rejected</span></button>
-          <button (click)="updateIssueStatus('fixed')" class="status-option"><span class="status-option-text">Fixed</span></button>
-      </div>
+      <button class="issue-status dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{issueStatus}}
+      </button>
+   
+    <div class="dropdown-menu">
+        <button (click)="updateIssueStatus('pending')" class="status-option"><span class="status-option-text">Pending</span></button>
+        <button (click)="updateIssueStatus('approved')" class="status-option"><span class="status-option-text">Approved</span></button>
+        <button (click)="updateIssueStatus('rejected')" class="status-option"><span class="status-option-text">Rejected</span></button>
+        <button (click)="updateIssueStatus('fixed')" class="status-option"><span class="status-option-text">Fixed</span></button>
     </div>
+  </div>
 
-    <ng-template #notDev>
-      <h2 class="issue-status-notdev" >{{issueStatus}}</h2>
-    </ng-template>
+  <ng-template #notDev>
+    <h2 class="issue-status-notdev" >{{issueStatus}}</h2>
+  </ng-template>
+  </div>
+  
   
 
   

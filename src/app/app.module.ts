@@ -33,7 +33,7 @@ import { IssuemanagerService } from './shared/issue-manager.service';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebaseConf),
     AngularFirestoreModule,
     AngularFireAuthModule,
     ReactiveFormsModule,

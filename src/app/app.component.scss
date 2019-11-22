@@ -2,11 +2,15 @@
 
 
 .container {
-    max-width: 1900px;    
+    max-width: 90vw;    
     overflow: hidden;
     position: relative;
     
     // padding: 2rem;
+}
+
+.sidebar {
+    width: 15%;
 }
 
 .shadow1 {
