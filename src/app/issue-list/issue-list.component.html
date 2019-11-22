@@ -16,7 +16,7 @@
   
   <div class="new-issue-wrapper col-2">
 
-        <button class="new-issue btn" *ngIf="currentProject != 'all'" (click)="submitNewIssue()">New issue</button>
+        <button class="new-issue btn" *ngIf="currentProject != 'all' && db.isLoggedIn()" (click)="submitNewIssue()">New issue</button>
 
     </div>
 

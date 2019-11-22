@@ -57,6 +57,14 @@ export class IssuemanagerService {
    }
 
 
+   isLoggedIn() {
+    if (this.afAuth.auth && this.afAuth.auth.currentUser) {
+      return true
+    } else {
+      return false
+    }
+    
+   }
 
    isDev() {
      if (this.afAuth && this.afAuth.auth.currentUser) {

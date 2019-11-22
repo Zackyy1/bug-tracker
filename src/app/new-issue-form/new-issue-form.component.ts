@@ -42,8 +42,10 @@ export class NewIssueFormComponent implements OnInit {
       'expected': new FormControl(null),
       'actual': new FormControl(null),
       'summary': new FormControl(null),
-
     })
+    if (this.db.isLoggedIn() == false) {
+      this.router.navigateByUrl('/projects/'+this.project)
+    }
   }
 
   updateData(event, key) {
