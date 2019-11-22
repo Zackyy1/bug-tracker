@@ -2,14 +2,14 @@
 
   <div class="header">
 
+      <div class="title">
+          <label for="issueTitle">Issue title</label>
+          <input type="text" (input)="updateData($event, 'title')">
+      </div>
+
     <div class="form-header">
         <h5 class="pre-project-title">New issue for project</h5>
         <h2 class="project-title">{{parsedProject}}</h2>
-    </div>
-
-    <div class="title">
-        <label for="issueTitle">Issue title</label>
-        <input type="text" (input)="updateData($event, 'title')">
     </div>
     
   </div>

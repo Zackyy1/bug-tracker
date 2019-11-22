@@ -14,18 +14,22 @@
       <button class="issue-status dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{issueStatus}}
       </button>
-   
-    <div class="dropdown-menu">
-        <button (click)="updateIssueStatus('pending')" class="status-option"><span class="status-option-text">Pending</span></button>
-        <button (click)="updateIssueStatus('approved')" class="status-option"><span class="status-option-text">Approved</span></button>
-        <button (click)="updateIssueStatus('rejected')" class="status-option"><span class="status-option-text">Rejected</span></button>
-        <button (click)="updateIssueStatus('fixed')" class="status-option"><span class="status-option-text">Fixed</span></button>
-    </div>
-  </div>
 
-  <ng-template #notDev>
-    <h2 class="issue-status-notdev" >{{issueStatus}}</h2>
-  </ng-template>
+      <div class="dropdown-menu">
+          <button (click)="updateIssueStatus('pending')" class="status-option"><span class="status-option-text">Pending</span></button>
+          <button (click)="updateIssueStatus('approved')" class="status-option"><span class="status-option-text">Approved</span></button>
+          <button (click)="updateIssueStatus('rejected')" class="status-option"><span class="status-option-text">Rejected</span></button>
+          <button (click)="updateIssueStatus('fixed')" class="status-option"><span class="status-option-text">Fixed</span></button>
+      </div>
+    </div>
+
+    <ng-template #notDev>
+      <div class="issue-status-notdev">
+          <h2 >{{issueStatus}}</h2>
+
+      </div>
+    </ng-template>
+
   </div>
   
   

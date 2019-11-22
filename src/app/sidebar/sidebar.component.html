@@ -10,6 +10,6 @@
   <h2>Projects</h2>
   <div class="project-list">
     <button class="project-button" (click)="switchToProject({projectName: 'all'})">all</button>
-    <button class="project-button" (click)="switchToProject(project)" *ngFor="let project of projects">{{project.projectName}}</button>
+    <button class="project-button" (click)="switchToProject(project)" *ngFor="let project of projects">{{project.parsedName}}</button>
   </div>
 </div>

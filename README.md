@@ -31,7 +31,7 @@ environment.prod.ts
     export  const  environment  = {
 	    production:  true, // false in other file
 	    devs:  ['devsemail123@gmail.com', 'anotherdevsemail321@gmail.com],
-	    firebase: {
+	    firebaseConf: {
 		    apiKey:  "#########################",
 		    authDomain:  "##############.firebaseapp.com",
 		    databaseURL:  "https://###############.firebaseio.com",

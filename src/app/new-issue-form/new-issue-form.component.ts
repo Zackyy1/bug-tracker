@@ -43,13 +43,19 @@ export class NewIssueFormComponent implements OnInit {
       'actual': new FormControl(null),
       'summary': new FormControl(null),
     })
-    if (this.db.isLoggedIn() == false) {
-      this.router.navigateByUrl('/projects/'+this.project)
-    }
+
+    setTimeout(() => {
+      if (this.db.isLoggedIn() == false) {
+        this.db.switchToProject(this.project)
+        this.router.navigateByUrl('/projects/'+this.project)
+
+      }
+    }, 1000)
+    
   }
 
   updateData(event, key) {
-    console.log('Updated', key)
+    // console.log('Updated', key)
     this[key] = event.target.value
   }
 

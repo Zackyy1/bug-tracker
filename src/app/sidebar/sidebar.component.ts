@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
 
   projects
   currentProject
+  parsedProjectName
   showForm: boolean = false
   constructor(private db: IssuemanagerService, private router: Router) {
     db.currentProjectSubj.subscribe(value => {
@@ -23,9 +24,14 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.db.projects.subscribe(e => {
+      
+     e.map(p => {
+        p.parsedName = p.projectName.replace(/-/g, ' ')
+      })
       this.projects = e
       return e
     })
+    
   }
 
   toggleForm() {

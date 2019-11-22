@@ -14,7 +14,7 @@
 
     .issue-topic {
         font-size: 2rem;
-        // margin: 0.5rem;
+        margin: 0.5rem;
         padding: 0.5rem;
         text-decoration: underline;
     }
@@ -45,7 +45,7 @@
         }
     }
 
-    p {
+    .summary, .issueId {
         margin: 0.5rem;
         padding: 0.5rem 0.5rem;
         font-size: 1.3rem;

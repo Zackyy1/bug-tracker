@@ -26,7 +26,7 @@
   
   </h2>
 
-  <p>Issue id: {{ issue.id }}</p>
+  <p class="issueId">Issue id: {{ issue.id }}</p>
 
   <div class="divider"></div>
 
@@ -35,9 +35,10 @@
 
   <div class="divider"></div>
 
-
+<div *ngIf="issue.details.longDescription.length > 0">
   <h5 class="issue-topic">Description</h5>
-  <p class="summary" [innerHtml]="issue.details.longDescription" ></p>
-
+  <div class="summary" [innerHtml]="issue.details.longDescription"></div>
+  
+</div>
 
 </div>

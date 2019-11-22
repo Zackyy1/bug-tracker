@@ -3,10 +3,11 @@
     width: 100%;
     height: 99vh;
     // background: linear-gradient(to right, rgb(31, 31, 31),rgb(88, 88, 88) );
-    background: rgb(31,31,31);
-    color: white;
+    // background: rgb(31,31,31);
+    color: rgb(0, 0, 0);
     font-family: "Roboto", sans-serif;
-    border-radius: 45px;
+    // border-radius: 45px;
+    border-right: 2px solid rgb(31,31,31);
 
     ul {
         li {
@@ -27,7 +28,7 @@
     background-color: rgba(48, 48, 48, 0);
     button {
         height: 50px;
-        color: white;
+        color: black;
         width: 100%;
         text-align: center;
         padding: 1rem 2rem;
@@ -45,12 +46,11 @@
     outline: none;
     margin: .5rem;
     padding: .5rem;
-    color: white;
+    color: black;
     font-size: 1.7rem;
     font-family: "Roboto", sans-serif;
     // text-transform: uppercase;
-    font-variant: small-caps;
-    text-decoration: underline;
+    text-transform: capitalize;
     width: 100%;
     float: left;
     text-align: left;
@@ -67,7 +67,8 @@
             padding: 0.2rem;
             width: 100%;
             border-radius: 25px;
-
+            color: white;
+            background-color: rgb(31,31,31);
             transition: all .2s;
             text-align: center;
             font-size: 1.2rem;

@@ -49,6 +49,8 @@
 
     .issue-name {
         width: 70%;
+        margin: 0.5rem;
+        padding: 0.5rem;
         font-family: "Roboto", sans-serif;
     }
 
@@ -177,51 +179,51 @@
     
 }
 
-.close-popup {
-    position: fixed;
-    right: 0;top: 0;
-    width: fit-content;
-    font-family: "Roboto", sans-serif;
-    width: 80px;
-    height: 100%;
-    text-anchor: start;
-    text-align: start;
-    color: grey;
-    font-size: 2rem;
+// .close-popup {
+//     position: fixed;
+//     right: 0;top: 0;
+//     width: fit-content;
+//     font-family: "Roboto", sans-serif;
+//     width: 80px;
+//     height: 100%;
+//     text-anchor: start;
+//     text-align: start;
+//     color: grey;
+//     font-size: 2rem;
 
-    p {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: .5rem 3rem;
-        color: grey;
-        font-size: 2rem;
-    }
+//     p {
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//         margin: .5rem 3rem;
+//         color: grey;
+//         font-size: 2rem;
+//     }
     
-}
+// }
 
 
 
 
 
-.status-option::before {
-    position: absolute;
-    content: '';
-    top: 0;bottom: 0;right: 0;left: 0;
-    background-size: 400%;
-    background-position: 0%;
-    filter: blur(15px);
+// .status-option::before {
+//     position: absolute;
+//     content: '';
+//     top: 0;bottom: 0;right: 0;left: 0;
+//     background-size: 400%;
+//     background-position: 0%;
+//     filter: blur(15px);
 
-}
+// }
 
-.status-option:hover::before {
-    background: linear-gradient(to right, rgb(16, 157, 167), rgb(16, 64, 167), rgb(61, 16, 167), rgb(16, 86, 167), rgb(16, 157, 167));
-    background-size: 400%;
-    top: 0;bottom: 0;right: 0;left: 0;
-    z-index: 300;
-    opacity: .3;
-    animation: animate 6s infinite 0s forwards ease;
-}
+// .status-option:hover::before {
+//     background: linear-gradient(to right, rgb(16, 157, 167), rgb(16, 64, 167), rgb(61, 16, 167), rgb(16, 86, 167), rgb(16, 157, 167));
+//     background-size: 400%;
+//     top: 0;bottom: 0;right: 0;left: 0;
+//     z-index: 300;
+//     opacity: .3;
+//     animation: animate 6s infinite 0s forwards ease;
+// }
 
 @keyframes animate {
     0%{
@@ -256,12 +258,13 @@
 }
 
 
-.issue-status-notdev {
+.issue-status-notdev h2 {
     float: right;
-
+   margin: 1rem;
+   padding: 1rem;
 }
 
-.issue-status-notdev:hover {
+.issue-status-notdev h2:hover {
     text-decoration: none !important;
 }
 

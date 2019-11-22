@@ -13,8 +13,9 @@
     <button class="new-issue btn" *ngIf="currentProject != 'all' && db.isLoggedIn()" (click)="submitNewIssue()">New issue</button>
 
 
-    <div *ngIf="currentProjectIssues == null || currentProjectIssues.length < 1">
-        <h2 class="no-issues" >No issues yet!</h2>
+    <div style="width: 100%;" *ngIf="currentProjectIssues == null || currentProjectIssues.length < 1">
+        <h2 class="no-issues" >No issues yet for <span class="project-name">{{currentProject}}</span></h2>
+        <h2 *ngIf="db.isLoggedIn()==false" style="text-align: center;">Log in to post a new issue</h2>
    </div>
 
 
