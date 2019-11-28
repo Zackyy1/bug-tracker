@@ -1,7 +1,7 @@
 
 <div class="issue-details" *ngIf="issue">
 
-  <h2 class="issue-title">{{issue.project}} <br> <span>{{issue.title}}</span></h2>
+  <h2 class="issue-title">{{db.parseProjectName(issue.project)}} <br> <span>{{issue.title}}</span></h2>
   <div class="divider"></div>
 
   <h2 class="issue-status">Status: 
@@ -10,18 +10,18 @@
     <div class="btn-group" *ngIf="db.isDev(); else notDev">
         <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          <span class="status-text" [ngClass]="issue.status == 'pending' ? 'pending' : issue.status == 'approved' ? 'approved'
-         : issue.status == 'rejected' ? 'rejected' : issue.status == 'fixed' ? 'fixed' : noclass"><strong>{{issue.status}}</strong></span>
+         : issue.status == 'rejected' ? 'rejected' : issue.status == 'fixed/done' ? 'fixed' : noclass"><strong>{{issue.status}}</strong></span>
         </button>
         <div class="dropdown-menu">
           <button (click)="updateIssueStatus('pending')" class="status-option"><span class="status-option-text">Pending</span></button>
           <button (click)="updateIssueStatus('approved')" class="status-option"><span class="status-option-text">Approved</span></button>
           <button (click)="updateIssueStatus('rejected')" class="status-option"><span class="status-option-text">Rejected</span></button>
-          <button (click)="updateIssueStatus('fixed')" class="status-option"><span class="status-option-text">Fixed</span></button>
+          <button (click)="updateIssueStatus('fixed/done')" class="status-option"><span class="status-option-text">Fixed/Done</span></button>
         </div>
       </div>
       <ng-template #notDev>
           <span class="status-text" [ngClass]="issue.status == 'pending' ? 'pending' : issue.status == 'approved' ? 'approved'
-          : issue.status == 'rejected' ? 'rejected' : issue.status == 'fixed' ? 'fixed' : noclass"><strong>{{issue.status}}</strong></span>
+          : issue.status == 'rejected' ? 'rejected' : issue.status == 'fixed/done' ? 'fixed' : noclass"><strong>{{issue.status}}</strong></span>
       </ng-template>
   
   </h2>
@@ -33,12 +33,42 @@
   <h5 class="issue-topic">Summary</h5>
   <p class="summary" [innerHtml]="issue.summary"></p>
 
-  <div class="divider"></div>
+  <!-- <div class="divider"></div> -->
 
 <div *ngIf="issue.details.longDescription.length > 0">
   <h5 class="issue-topic">Description</h5>
   <div class="summary" [innerHtml]="issue.details.longDescription"></div>
-  
+</div>
+
+<div class="divider  far"></div>
+
+<div class="comment-section">
+
+    <h3>Comments</h3>
+  <!-- <div class="flex">
+      
+    <div class="spacer"></div>
+      <button class="btn new-comment"><span>+</span>Comment</button>
+  </div> -->
+
+  <div class="new-comment-form" *ngIf="db.isLoggedIn()">
+    <form (ngSubmit)="submitComment()" [formGroup]="commentForm">
+      <input type="text" class="input-comment" formControlName="comment">
+      <input type="submit" class="submit-button" value="Leave a comment">
+    </form>
+  </div>
+
+  <div class="comments">
+    <div class="comment" *ngFor="let comment of issue.details.comments">
+      <p class="comment-head">Posted by {{comment.username}} on <span class="time">{{comment.time}} | {{comment.date}}</span></p>
+      <p class="comment-body">{{comment.commentBody}}</p>
+      <button class="delete-comment" *ngIf="db.isLoggedIn() && comment.email == db.afAuth.auth.currentUser.email" (click)="deleteComment(comment)">x</button>
+    </div>
+   
+
+
+  </div>
+
 </div>
 
 </div>

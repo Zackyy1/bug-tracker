@@ -91,7 +91,7 @@ export class IssuemanagerService {
    }
 
    switchToProject(projectName) {
-     this.currentProject = projectName.replace(/ /g, "-")
+     this.currentProject = this.unParseProjectName(projectName)
      this.currentProjectSubj.next(this.currentProject)
      
    }
@@ -125,14 +125,20 @@ export class IssuemanagerService {
   }
 
   addNewProject(projectName) {
-    this.addToCollection('projects', {projectName: projectName.replace(/ /g, "-")})
+    const parsedNameLower = projectName.replace(/ /g, "-").toLowerCase()
+    const parsedName = projectName.replace(/ /g, "-")
+
+    this.db.collection('projects').doc(parsedNameLower).set({projectName: parsedName})
   }
 
   removeFromCollection(collectionName: string, issue) {
     this.db.collection(collectionName).doc(issue.project+issue.id).delete()
   }
 
-  removeProject(projectName) {
+  removeProject(project) {
+    const unparsed = this.unParseProjectName(project.projectName)
+
+    this.db.collection('projects').doc(unparsed).delete()
 
   }
 
@@ -144,5 +150,11 @@ export class IssuemanagerService {
     this.db.collection('new-bugs').doc(issue.project+issue.id).update(issue)
   }
 
+  parseProjectName(str) {
+    return str.replace(/-/g, ' ')
+  }
+  unParseProjectName(str) {
+    return str.replace(/ /g, '-').toLowerCase()
+  }
   
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IssuemanagerService } from '../shared/issue-manager.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-issue-details',
@@ -12,6 +13,10 @@ export class IssueDetailsComponent implements OnInit {
   issues = []
   issue
   id: string
+
+  commentForm: FormGroup
+
+
   constructor(private db: IssuemanagerService, private router: Router) { 
     this.db.items.subscribe(e => {
       this.issues = e
@@ -36,6 +41,9 @@ export class IssueDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.issue= this.db.currentIssue
+    this.commentForm = new FormGroup({
+      'comment': new FormControl(null),
+    })
     
   }
 
@@ -43,5 +51,34 @@ export class IssueDetailsComponent implements OnInit {
     this.issue.status = status
     this.db.updateIssue(this.issue)
   }
+
+  submitComment() {
+    const commentBody = this.commentForm.get('comment').value
+    const email = this.db.afAuth.auth.currentUser.email;
+    const username = email.slice(0, email.indexOf('@'))
+    const timeDate = new Date();
+    const date = timeDate.toLocaleDateString()
+    const time = timeDate.toLocaleTimeString().slice(0, timeDate.toLocaleTimeString().lastIndexOf(':'))
+    const comment = {
+      commentBody,
+      username,
+      timeDate,
+      email,
+      date,
+      time
+    }
+    this.issue.details.comments.unshift(comment)
+    this.commentForm.reset()
+    this.db.updateIssue(this.issue)
+  }
+
+  deleteComment(comment) {
+    const idx = this.issue.details.comments.indexOf(comment)
+    this.issue.details.comments.splice(idx, 1)
+    this.db.updateIssue(this.issue)
+
+  }
+
+  
 
 }

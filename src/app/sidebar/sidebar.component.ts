@@ -40,15 +40,25 @@ export class SidebarComponent implements OnInit {
 
   submitNewProject(e) {
     e.preventDefault()
-    this.db.addNewProject(e.target[0].value)
-    e.target[0].value = null
-    this.showForm = false
+    if (e.target[0].value.length > 3) {
+      this.db.addNewProject(e.target[0].value)
+      e.target[0].value = null
+      this.showForm = false
+    } else {
+      alert("Project must be at least 4 characters long")
+    }
+    
   }
 
   switchToProject(project) {
-    this.router.navigateByUrl('/projects/'+project.projectName)
-    this.db.switchToProject(project.projectName)
+    this.router.navigateByUrl('/projects/'+this.db.unParseProjectName(project.projectName))
+    this.db.switchToProject(this.db.unParseProjectName(project.projectName))
 
+  }
+
+  deleteProject(project) {
+    console.log(project.projectName)
+    this.db.removeProject(project)
   }
 
 }

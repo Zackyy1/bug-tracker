@@ -124,3 +124,133 @@
 
     }
 }
+
+.flex {
+    display: flex;
+}
+
+.spacer {
+    width: 100%;
+}
+
+.new-comment {
+    border-radius: 15px;
+    background: linear-gradient(to right, rgb(16, 112, 167), rgb(73, 50, 209), rgb(16, 112, 167));
+    background-size: 200%;
+    background-position: 0%;
+    color: white;
+    padding: 0.2rem 0.7rem;
+    margin: 1rem 0;
+    font-family: "Roboto", sans-serif;
+    transition: .2s ease;
+
+    outline: none;
+
+    span {
+        font-size: 2rem;
+        padding:  0.5rem 1rem;
+        
+    }
+
+    &:hover {
+        background-position: 100%;
+        transform: scale(1.02);
+        transition: .2s ease;
+    }
+
+   
+}
+
+.far {
+    margin: 2rem 0 0 0;
+}
+
+
+.comment-section {
+    // margin: 2rem 0;
+    h3 {
+        margin: 1rem 0 0;
+        padding: 0.5rem;
+        vertical-align: middle;
+    }
+}
+
+.comments {
+
+    font-family: "Roboto", sans-serif;
+
+    .comment {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+        border-top: 2px solid rgba(0, 0, 0, 0.384);
+        // border-radius: 15px;
+        padding: 1rem;
+        font-size: 1.3rem;
+        .comment-head {
+            span {
+                color: rgb(196, 196, 196);
+                // font-size: 1rem
+            }
+        }
+
+        .comment-body {
+            // border-left: 2px solid rgba($color: #000000, $alpha: 0.384);
+            padding: 0.5rem;
+        }
+
+        &:hover .delete-comment {
+            display: block;
+        }
+    }
+}
+
+.new-comment-form {
+    padding:  1rem 0.5rem;
+
+    form {
+        border: 1px solid black;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .input-comment {
+        font-size: 1.3rem;
+        padding: 1rem;
+        border: none;
+        width: 80%;
+    }
+
+    .submit-button {
+        font-size: 1.3rem;
+        padding: 1rem;
+        width: 20%;
+        border: none;
+        outline: none;
+        height: 100%;
+        background: linear-gradient(to right, rgb(16, 112, 167), rgb(73, 50, 209), rgb(16, 112, 167));
+        background-size: 200%;
+        transition: 0.2s ease;
+        &:hover {
+            background-position: 100%;
+            // transform: scale(1.02);
+            transition: .2s ease;
+        }
+    }
+
+
+
+}
+
+.delete-comment {
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 2rem;
+    position: absolute;
+    top: 0;right: 0;
+    padding: 1rem;
+    color: grey;
+    font-family: "Roboto";
+    display: none;
+}

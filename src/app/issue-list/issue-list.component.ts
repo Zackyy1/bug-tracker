@@ -20,7 +20,7 @@ export class IssueListComponent implements OnInit {
   constructor(public db: IssuemanagerService, private router: Router) { 
     router.events.subscribe(val => {
       val && val['urlAfterRedirects'] ? 
-      this.db.switchToProject(val['urlAfterRedirects'].slice(val['urlAfterRedirects'].lastIndexOf('/')+1, val['urlAfterRedirects'].length))
+      this.db.switchToProject(val['urlAfterRedirects'].slice(val['urlAfterRedirects'].lastIndexOf('/')+1, val['urlAfterRedirects'].length).toLowerCase())
       : null
     })
   }
